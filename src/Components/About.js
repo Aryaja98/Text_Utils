@@ -5,17 +5,17 @@ export default function About() {
 
     const changeTheme = () =>{
         if(myStyle.color == 'white') {
-        setText('Disable Dark Mode')
+        setText('Enable Dark Mode')
         setMyStyle({color: "black", backgroundColor: "white"})
     } else {
-        setText('Enable Dark Mode')
-        setMyStyle({color: "white", backgroundColor: "black"})
+        setText('Disable Dark Mode')
+        setMyStyle({color: "white", backgroundColor: "black", border: "1px solid white"})
     }
 
     }
 
     //initialize button text & initial theme
-    const[myStyle,setMyStyle] = useState({color: "white", backgroundColor: "black"})
+    const[myStyle,setMyStyle] = useState({color: "black", backgroundColor: "white"})
     const[text,setText] = useState('Enable Dark Mode')
 
     return (
