@@ -11,9 +11,9 @@ function App() {
       {/* Passing props */}
       <Navbar title = 'Text Utils'/>
 
-      {/*<div className="container">
+      *<div className="container">
         <TextForm heading = "Enter the text"/>
-      </div>*/}
+      </div>
 
       <About></About>
          
