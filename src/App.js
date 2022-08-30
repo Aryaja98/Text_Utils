@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import PropTypes from 'prop-types';
 import TextForm from './Components/TextForm';
+import About from './Components/About';
 
 function App() {
   return (
@@ -10,9 +11,11 @@ function App() {
       {/* Passing props */}
       <Navbar title = 'Text Utils'/>
 
-      <div className="container">
+      {/*<div className="container">
         <TextForm heading = "Enter the text"/>
-      </div>
+      </div>*/}
+
+      <About></About>
          
     </div>
   );
