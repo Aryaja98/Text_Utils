@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function About() {
 
     const changeTheme = () =>{
-        if(myStyle.color == 'white') {
+        if(myStyle.color === 'white') {
         setText('Enable Dark Mode')
         setMyStyle({color: "black", backgroundColor: "white"})
     } else {
