@@ -9,12 +9,17 @@ function App() {
 
 //define usestate for darkmode
 const [mode,setMode] = useState('light');
+  //const[text,setText] = useState('Enable Dark Mode');
 
-const toggleMode = () =>{
-  if (mode === 'dark'){
+  const toggleMode = () =>{
+  if (mode  === 'dark'){
     setMode('light')
+    document.body.style.backgroundColor = 'white'
+    //setText('Enable Dark Mode')
   }else{
     setMode('dark')
+    document.body.style.backgroundColor = '#042743'
+    //setText('Disbale Dark Mode')
   }
 }
 
@@ -25,10 +30,10 @@ const toggleMode = () =>{
       <Navbar title = 'Text Utils' theme = {mode} toggleMode = {toggleMode}/>
 
       <div className="container">
-        <TextForm heading = "Enter the text"/>
+        <TextForm heading = "Enter the text" theme = {mode}/>
       </div>
 
-      <About></About>
+      {/* <About></About> */}
          
     </div>
   );

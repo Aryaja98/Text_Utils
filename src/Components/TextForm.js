@@ -44,12 +44,12 @@ const [text, setText] = useState('Enter your text here......');
 
   return (
     <>
-    <div className='container ' >
+    <div className='container ' style = {{color: props.theme === 'dark'?'white':'black'}}>
             <h1>{props.heading}</h1>
 
             <div className="mb-3 ">
             {/*<label for="myBox" className="form-label">Example textarea</label>*/}
-                <textarea className="form-control" id="myBox" value = {text} rows="8" onChange={handleOnChange} ></textarea>
+                <textarea className="form-control" id="myBox" value = {text} rows="8" onChange={handleOnChange} style = {{backgroundColor: props.theme=== 'light' ?'white':'grey', color: props.theme === 'dark'?'white':'black'}}></textarea>
             </div>
           <div className='d-flex justify-content-start'>
             <button type="button" className="btn btn-success mx-2 " onClick={handleUpClick} >Convert to upper case</button>
@@ -59,16 +59,16 @@ const [text, setText] = useState('Enter your text here......');
           </div>
     </div>
 
-    <div className='container my-3 d-flex align-items-start flex-column '>
+    <div className='container my-3 d-flex align-items-start flex-column 'style = {{color:props.theme=== 'dark'?'white':'black'}}>
 
-      <div className='container  d-flex align-items-start flex-column border'>
+      <div className='container  d-flex align-items-start flex-column border' >
         <h3> Your Text Summary</h3>
         <p>{text.split(" ").length} words and {text.length} characters</p>
         <p>{0.008 *text.split(" ").length }Minutes to read</p>
       </div>
 
       <h3>Preview</h3>
-      <p className='text-left'>{text}</p>
+      <p className='text-left'>{text.lenght>0?text:'Enter something to preview'}</p>
     </div>
     </>
   )

@@ -1,6 +1,21 @@
 import React from 'react'
+import { useState } from 'react'
 
 export default function Navbar(props) {
+
+  const[text,setText] = useState('Enable Dark Mode');
+  
+  const changeText = () =>{
+    if(text == 'Enable Dark Mode')
+    {
+      setText('Disbale Dark Mode')
+      console.log(text)
+    }else{
+      setText('Enable Dark Mode')
+    }
+  }
+
+
   return (
     <div>
         <nav className={`navbar navbar-expand-lg navbar-${props.theme} bg-${props.theme}`}>
