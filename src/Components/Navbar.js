@@ -1,20 +1,20 @@
 import React from 'react'
-import { useState } from 'react'
+//import { useState } from 'react'
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
 
-  const[text,setText] = useState('Enable Dark Mode');
+  // const[text,setText] = useState('Enable Dark Mode');
   
-  const changeText = () =>{
-    if(text == 'Enable Dark Mode')
-    {
-      setText('Disbale Dark Mode')
-      console.log(text)
-    }else{
-      setText('Enable Dark Mode')
-    }
-  }
+  // const changeText = () =>{
+  //   if(text == 'Enable Dark Mode')
+  //   {
+  //     setText('Disbale Dark Mode')
+  //     console.log(text)
+  //   }else{
+  //     setText('Enable Dark Mode')
+  //   }
+  // }
 
 
   return (
@@ -46,7 +46,7 @@ export default function Navbar(props) {
 
               <div className={`form-check form-switch text-${props.theme === 'light'?'dark':'light'}`}>
                 <input className= "form-check-input" type="checkbox" onClick={props.toggleMode}  role="switch" id="flexSwitchCheckDefault"/>
-                <label className= "form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+                <label className= "form-check-label" htmlFor="flexSwitchCheckDefault" >{props.text}</label>
               </div>
               
             </div>

@@ -16,6 +16,7 @@ function App() {
 //define usestate for darkmode
 const [mode,setMode] = useState('light');
 const [alert,setAlert] = useState('null');
+const [text,setText] = useState('Enable dark mode');
 
 //Enable Dark Mode function
   const toggleMode = () =>{
@@ -23,10 +24,12 @@ const [alert,setAlert] = useState('null');
     setMode('light')
     document.body.style.backgroundColor = 'white'
     showAlert(": Light mode enabled","success")
+    setText('Disable dark mode')
   }else{
     setMode('dark')
     document.body.style.backgroundColor = '#042743'
     showAlert(": Dark mode enabled","success")
+    setText('Enable dark mode')
   }
 }
 
@@ -42,7 +45,7 @@ const showAlert = (message,type) =>{
   return (
     <div className="App">
       <Router>
-        <Navbar title = 'Text Utils' theme = {mode} toggleMode = {toggleMode}/>
+        <Navbar title = 'Text Utils' theme = {mode} text={text} toggleMode = {toggleMode}/>
         <Alert alert={alert}/>
         <div className="container">
           <Routes>
