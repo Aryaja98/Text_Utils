@@ -2,9 +2,14 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import PropTypes from 'prop-types';
 import TextForm from './Components/TextForm';
-//import About from './Components/About';
+import About from './Components/About';
 import { useState } from 'react';
 import Alert from './Components/Alert';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
 
@@ -36,18 +41,25 @@ const showAlert = (message,type) =>{
 
   return (
     <div className="App">
-      
-      {/* Passing props */}
-      <Navbar title = 'Text Utils' theme = {mode} toggleMode = {toggleMode}/>
-
-      <Alert alert={alert}></Alert>
-
-      <div className="container">
-        <TextForm heading = "Enter the text" theme={mode} alert={showAlert}/>
-      </div>
-
-      {/* <About></About> */}
+      <Router>
+        <Navbar title = 'Text Utils' theme = {mode} toggleMode = {toggleMode}/>
+        <Alert alert={alert}/>
+        <div className="container">
+          <Routes>
+              <Route index element={<TextForm heading = "Enter the text" theme={mode} alert={showAlert}/>}/>
+              <Route exact path="/about" element={<About/>}/>  {/* exact = complete matching */}
+            </Routes>
+        </div>
+      </Router>
          
+        {/* Passing props */}
+        {/* <Navbar title = 'Text Utils' theme = {mode} toggleMode = {toggleMode}/>
+        <Alert alert={alert}></Alert>
+        <div className="container">
+          <TextForm heading = "Enter the text" theme={mode} alert={showAlert}/>
+        </div> */}
+        {/* <About></About> */}
+     
     </div>
   );
 }
