@@ -7,18 +7,21 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     console.log("Upper case click!")
     setText(text.toUpperCase())
+    props.alert("Text Converted to upper case","success")
   }
 
   //define the function - handleLoClick here
   const handleLoClick = () => {
     console.log("Lower case click!")
     setText(text.toLowerCase())
+    props.alert("Text Converted to Lower case","success")
   }
 
    //define the function - handleLoClick here
    const handleCleClick = () => {
     console.log("Clear text!")
     setText('')
+    props.alert("Text Cleared","success")
   }
 
   const handleOnChange = (event) => {
@@ -36,7 +39,13 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(copyText.value);
   
     /* Alert the copied text */
-    alert("Text copied" );
+    if(copyText.value.length>0){
+      props.alert("Text Copied","success")
+    }
+    else{
+      props.alert("Textbox is empty","warning")  
+    }
+    
   }
 
 // create a variable text and set value 'Enter a text'

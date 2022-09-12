@@ -2,25 +2,36 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import PropTypes from 'prop-types';
 import TextForm from './Components/TextForm';
-import About from './Components/About';
+//import About from './Components/About';
 import { useState } from 'react';
+import Alert from './Components/Alert';
 
 function App() {
 
 //define usestate for darkmode
 const [mode,setMode] = useState('light');
-  //const[text,setText] = useState('Enable Dark Mode');
+const [alert,setAlert] = useState('null');
 
+//Enable Dark Mode function
   const toggleMode = () =>{
   if (mode  === 'dark'){
     setMode('light')
     document.body.style.backgroundColor = 'white'
-    //setText('Enable Dark Mode')
+    showAlert(": Light mode enabled","success")
   }else{
     setMode('dark')
     document.body.style.backgroundColor = '#042743'
-    //setText('Disbale Dark Mode')
+    showAlert(": Dark mode enabled","success")
   }
+}
+
+//Show Alert function
+const showAlert = (message,type) =>{
+  setAlert({msg: message, msgType: type})
+  //timeout 
+  setTimeout(()=>{
+    setAlert('null');
+  },1500);
 }
 
   return (
@@ -29,8 +40,10 @@ const [mode,setMode] = useState('light');
       {/* Passing props */}
       <Navbar title = 'Text Utils' theme = {mode} toggleMode = {toggleMode}/>
 
+      <Alert alert={alert}></Alert>
+
       <div className="container">
-        <TextForm heading = "Enter the text" theme = {mode}/>
+        <TextForm heading = "Enter the text" theme={mode} alert={showAlert}/>
       </div>
 
       {/* <About></About> */}
