@@ -24,12 +24,12 @@ const [text,setText] = useState('Enable dark mode');
     setMode('light')
     document.body.style.backgroundColor = 'white'
     showAlert(": Light mode enabled","success")
-    setText('Disable dark mode')
+    setText('Enable dark mode')
   }else{
     setMode('dark')
     document.body.style.backgroundColor = '#042743'
     showAlert(": Dark mode enabled","success")
-    setText('Enable dark mode')
+    setText('Disable dark mode')
   }
 }
 
@@ -50,7 +50,7 @@ const showAlert = (message,type) =>{
         <div className="container">
           <Routes>
               <Route index element={<TextForm heading = "Enter the text" theme={mode} alert={showAlert}/>}/>
-              <Route exact path="/about" element={<About/>}/>  {/* exact = complete matching */}
+              <Route exact path="/about" element={<About theme={mode}/>}/>  {/* exact = complete matching */}
             </Routes>
         </div>
       </Router>
